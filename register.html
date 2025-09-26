@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+
+  <form class="bg-white p-6 rounded-lg shadow-md w-full max-w-sm">
+    <h1 class="text-2xl font-bold mb-6 text-center">Register</h1>
+
+
+    <div class="mb-4">
+      <label for="first_name" class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+      <input type="text" id="first_name" placeholder="enter firstname" required
+        class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-300" />
+    </div>
+
+
+    <div class="mb-4">
+      <label for="last_name" class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
+      <input type="text" id="last_name" placeholder="Doe" required
+        class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-300" />
+    </div>
+
+    <div class="mb-4">
+      <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+      <input type="email" id="email" placeholder="you@example.com" required
+        class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-300" />
+    </div>
+
+    <div class="mb-4">
+      <label for="phone_number" class="block text-sm font-medium text-gray-700 mb-1">Phone number</label>
+      <input type="text" id="phone_number" placeholder="Doe" required
+        class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-300" />
+    </div>
+
+    <div class="mb-4">
+      <label for="company_name" class="block text-sm font-medium text-gray-700 mb-1">company Name</label>
+      <input type="text" id="company_name" placeholder="Doe" required
+        class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-300" />
+    </div>
+
+    <div class="mb-4">
+      <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+      <input type="password" id="password" required
+        class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-300" />
+    </div>
+    
+    <button type="button" onclick="register()" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-300">
+      Register
+    </button>
+
+  
+    <p class="text-sm text-gray-600 mt-4 text-center">
+      Already have an account? 
+      <a href="./login.html" class="text-blue-600 hover:underline">Login</a>
+    </p>
+  </form>
+
+  <script>
+    function register(){
+        //create an object to hold all user data
+        const userdetails={
+            first:first_name.value,
+            last:last_name.value,
+            email:email.value,
+            phone:phone_number.value,
+            company:company_name.value,
+            password:password.value
+        }
+        if (userdetails.first==""||userdetails.last==""||userdetails.email==""||userdetails.phone==""||userdetails.company==""||userdetails.password==""){
+            alert("please fill the form")
+        }
+        else{
+            sessionStorage.setItem("userData",JSON.stringify(userdetails))
+            alert("registration successfull")
+            window.location.href="./login.html"
+        }
+    }
+  </script>
+
+</body>
+</html>
